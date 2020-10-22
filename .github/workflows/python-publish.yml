@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [macos-latest, windows-latest]
 
     name: Build with ${{ matrix.os }}
 
@@ -37,14 +37,4 @@ jobs:
         swig -c++ -python demo/demo.i
         python setup.py sdist bdist_wheel
         find dist -name "*.tar.gz" | xargs rm -rf
-
-  linux-build:
-    name: Build with ubuntu-latest
-    runs-on: ubuntu-latest
-    env:
-      TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-      TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: build and upload manylinux wheels
-        uses: Niraj-Kamdar/manylinux-wheel-builder@master
+        twine upload --repository testpypi dist/*

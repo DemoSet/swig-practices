@@ -36,10 +36,10 @@ custom_extension = CustomExtension(name='_demo',
                                    base_dir='demo',
                                    extra_compile_args=['-std=c++11'])
 setup(
-    name='demo',
-    version='0.0.1',
+    name='lucien-demo',
+    version='0.0.4',
     author="Lucien Shui",
     packages=find_packages(),
     ext_modules=[custom_extension],
-    cmdclass={'build_ext': CustomBuild}
+    cmdclass={'build_ext': CustomBuild},
 )
