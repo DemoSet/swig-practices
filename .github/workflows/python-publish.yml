@@ -36,5 +36,4 @@ jobs:
       run: |
         swig -c++ -python demo/demo.i
         python setup.py sdist bdist_wheel
-        find dist -name "*.tar.gz" | xargs rm -rf
         twine upload --repository testpypi dist/*
