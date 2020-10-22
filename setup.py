@@ -37,7 +37,7 @@ custom_extension = CustomExtension(name='_demo',
                                    extra_compile_args=['-std=c++11'])
 setup(
     name='lucien-demo',
-    version='0.0.4',
+    version='0.0.5',
     author="Lucien Shui",
     packages=find_packages(),
     ext_modules=[custom_extension],
